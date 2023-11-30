@@ -1,9 +1,13 @@
 import React from "react";
-import { Grid, Button, Image, Header, Popup } from "semantic-ui-react";
+import { Grid, Button, Header } from "semantic-ui-react";
 import DogImage from "@/components/DogImage";
+import useAppState from "@/useHooks/useAppState";
 
 export default function Home() {
     const [dogImages, setDogImages] = React.useState([]);
+    const appState = useAppState();
+
+    console.log(appState);
 
     function getDogImages() {
         fetch(
@@ -11,16 +15,21 @@ export default function Home() {
         )
             .then((r) => r.json())
             .then((r) => {
-                setDogImages(r);
+                appState.updateAppState({ dogImages: r });
             })
             .catch((e) => {
                 console.warn(e);
             });
     }
 
+    function saveDogImage(selectedDog) {
+        appState.updateAppState({
+            favoriteDogs: appState.favoriteDogs.concat(selectedDog),
+        });
+    }
+
     return (
         <>
-            <h1>Home</h1>
             <Grid columns="1">
                 <Grid.Column>
                     <Header as="h1">Random Dogs</Header>
@@ -34,9 +43,13 @@ export default function Home() {
                     />
                 </Grid.Column>
                 <Grid.Row columns="5">
-                    {dogImages.map((dogImage) => {
+                    {appState.dogImages.map((dogImage) => {
                         return (
-                            <DogImage key={dogImage.id} src={dogImage.url} />
+                            <DogImage
+                                key={dogImage.id}
+                                src={dogImage.url}
+                                onClick={() => saveDogImage(dogImage)}
+                            />
                         );
                     })}
                 </Grid.Row>
