@@ -32,7 +32,9 @@ export default function DogDetails() {
 
     return (
         <>
-            <h1>Dog Breed: {dogInfo.name} </h1>
+            <h1>Breed: {dogInfo.name}</h1>
+            <h1>Height: {dogInfo.height.imperial}</h1>
+            <h1>Weight: {dogInfo.weight.imperial} </h1>
         </>
     );
 }
