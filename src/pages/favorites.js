@@ -1,10 +1,12 @@
 import React from "react";
 import useAppState from "@/useHooks/useAppState";
 import { Grid, Button, Header, Image } from "semantic-ui-react";
-import Link from "next/link";
+import DogFav from "@/components/DogFav";
+import { useRouter } from "next/router";
 
 export default function Favorites() {
     const appState = useAppState();
+    const router = useRouter();
 
     function changeName() {
         const titles = ["Tall", "Short", "Old"];
@@ -14,8 +16,6 @@ export default function Favorites() {
             user: `Jerry the ${titles[randomTitleIndex]} Guy`,
         });
     }
-
-    // const router = useRouter();
 
     return (
         <>
@@ -34,11 +34,10 @@ export default function Favorites() {
                 <Grid.Row columns="5">
                     {appState.favoriteDogs.map((dog) => {
                         return (
-                            <Image
+                            <DogFav
                                 key={dog.id}
                                 src={dog.url}
-                                as={Link}
-                                href={`/dogs/${dog.id}`} // dynamic link to dog detail page based off dog ID
+                                onClick={() => router.push(`/dogs/${dog.id}`)}
                             />
                         );
                     })}
