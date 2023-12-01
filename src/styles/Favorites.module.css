@@ -1,6 +1,6 @@
 .subheading {
     width: 100%;
-    max-width: 1280px;
+    /* max-width: 1280px; */
     height: 100px;
     padding: 10px;
     background-color: #fff;
@@ -16,7 +16,7 @@
 
 .imageGrid {
     width: 100%;
-    max-width: 1280px;
+    /* max-width: 1280px; */
     padding: 20px;
 }
 
