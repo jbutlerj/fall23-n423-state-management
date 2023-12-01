@@ -1,0 +1,14 @@
+:root {
+    --blue: #4281a4;
+    --light-blue: #9cafb7;
+    --yellow: #ead2ac;
+    --orange: #e6b89c;
+    --pink: #fe938c;
+}
+
+body,
+html {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--light-blue);
+}

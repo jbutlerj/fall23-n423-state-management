@@ -11,7 +11,7 @@ export default function DogImage({ src, children, onClick }) {
                     content={
                         <Button
                             color="green"
-                            icon="heart"
+                            icon="save"
                             content={children || "Save"}
                             onClick={onClick}
                         />

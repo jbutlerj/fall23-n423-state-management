@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Card, Image, Loader } from "semantic-ui-react";
+import { Image, Loader } from "semantic-ui-react";
+import styles from "@/styles/Dynamic.module.css";
 
 export default function DogDetails() {
     const router = useRouter();
@@ -33,10 +34,35 @@ export default function DogDetails() {
                 dogInfo.id ? (
                     // true - then do this
                     <>
-                        <Image src={dogInfo.url} />
-                        <h1>Breed: {dogInfo.breeds[0].name}</h1>
-                        <h1>Height: {dogInfo.breeds[0].height.imperial}</h1>
-                        <h1>Weight: {dogInfo.breeds[0].weight.imperial}</h1>
+                        <div className={styles.container}>
+                            <div className={styles.left}>
+                                <Image src={dogInfo.url} />
+                            </div>
+                            <div className={styles.right}>
+                                <div className={styles.top}>
+                                    <h1>{dogInfo.breeds[0].name}</h1>
+                                </div>
+                                <div className={styles.bottom}>
+                                    <h3>
+                                        Height:{" "}
+                                        {dogInfo.breeds[0].height.imperial}{" "}
+                                        inches
+                                    </h3>
+                                    <h3>
+                                        Weight:{" "}
+                                        {dogInfo.breeds[0].weight.imperial} lbs.
+                                    </h3>
+                                    <h3>
+                                        Temperament:{" "}
+                                        {dogInfo.breeds[0].temperament}
+                                    </h3>
+                                    <h3>
+                                        Life Expectancy:{" "}
+                                        {dogInfo.breeds[0].life_span}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
                     </>
                 ) : (
                     // false - else do this

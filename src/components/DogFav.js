@@ -11,7 +11,7 @@ export default function DogFav({ src, children, onClick }) {
                     content={
                         <Button
                             color="green"
-                            icon="eye"
+                            icon="info circle"
                             content={children || "More Info"}
                             onClick={onClick}
                         />

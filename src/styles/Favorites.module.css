@@ -1,0 +1,29 @@
+.subheading {
+    width: 100%;
+    max-width: 1280px;
+    height: 100px;
+    padding: 10px;
+    background-color: #fff;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.subheading h3 {
+    color: #000;
+    font-size: 30px;
+}
+
+.imageGrid {
+    width: 100%;
+    max-width: 1280px;
+    padding: 20px;
+}
+
+.imageGrid img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    margin: 0 auto 15px auto !important;
+    border-radius: 10px;
+}
